@@ -12,13 +12,6 @@ export default function Home() {
   const { cards, matchedCards, clickCount, handleCardClick, resetGame } =
     useGameLogic(updateBestScore);
 
-  // Update best score when the game is completed
-  // useEffect(() => {
-  //   if (matchedCards.length === cards.length) {
-  //     updateBestScore(clickCount);
-  //   }
-  // }, [matchedCards, clickCount, updateBestScore]);
-
   return (
     <div className='min-h-screen bg-gray-100'>
       <Header clickCount={clickCount} bestScore={bestScore} />

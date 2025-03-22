@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 interface Card {
   imageUrl: string;
   isFlipped: boolean;
-  isMatched: boolean;
 }
 
 const useGameLogic = (updateBestScore: {
@@ -46,13 +45,9 @@ const useGameLogic = (updateBestScore: {
   // Handle card click
   const handleCardClick = (index: number) => {
     // Prevent flipping if:
-    // 1. The card is already flipped or matched.
+    // 1. The card is already flipped.
     // 2. Two cards are already flipped.
-    if (
-      cards[index].isFlipped ||
-      cards[index].isMatched ||
-      flippedCards.length === 2
-    ) {
+    if (cards[index].isFlipped || flippedCards.length === 2) {
       return;
     }
 
@@ -91,11 +86,13 @@ const useGameLogic = (updateBestScore: {
   // Reset the game
   const resetGame = () => {
     setCards((prevCards) =>
-      prevCards.map((card) => ({
-        ...card,
-        isFlipped: false,
-        isMatched: false,
-      }))
+      prevCards
+        .map((card) => ({
+          ...card,
+          isFlipped: false,
+          isMatched: false,
+        }))
+        .sort(() => Math.random() - 0.5)
     );
     setFlippedCards([]);
     setMatchedCards([]);
