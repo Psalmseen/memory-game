@@ -6,7 +6,10 @@ interface Card {
   isMatched: boolean;
 }
 
-const useGameLogic = () => {
+const useGameLogic = (updateBestScore: {
+  (clickCount: number): void;
+  (arg0: number): void;
+}) => {
   // State for all cards
   const [cards, setCards] = useState<Card[]>([]);
 
@@ -96,6 +99,7 @@ const useGameLogic = () => {
     );
     setFlippedCards([]);
     setMatchedCards([]);
+    updateBestScore(clickCount);
     setClickCount(0);
   };
 

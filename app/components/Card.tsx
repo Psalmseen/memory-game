@@ -20,8 +20,8 @@ const Card: React.FC<CardProps> = ({ imageUrl, isFlipped, onClick }) => {
         <Image
           src={imageUrl}
           alt='Card'
-          width={96} // Adjust based on screen size
-          height={96} // Adjust based on screen size
+          width={96}
+          height={96}
           className='rounded-lg'
         />
       </div>

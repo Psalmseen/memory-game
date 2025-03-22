@@ -11,7 +11,7 @@ const ResultsScreen: React.FC<ResultsScreenProps> = ({
   bestScore,
   onRestart,
 }) => {
-  const isNewBest = clickCount < bestScore;
+  const isNewBest = clickCount < bestScore || bestScore === 0;
 
   return (
     <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center'>
