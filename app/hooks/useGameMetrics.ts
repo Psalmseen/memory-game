@@ -35,7 +35,6 @@ import { useState, useEffect } from "react";
 
 const useGameMetrics = () => {
   const [bestScore, setBestScore] = useState<number>(0);
-  console.log("BEST SCORE", bestScore);
 
   // Load bestScore from localStorage on mount
   useEffect(() => {
@@ -47,7 +46,6 @@ const useGameMetrics = () => {
 
   // Function to update the best score
   const updateBestScore = (clickCount: number) => {
-    console.log("UPDATE BESTSCORE", clickCount, bestScore);
     if (
       clickCount < (bestScore ?? Infinity) ||
       (bestScore === 0 && clickCount > 0)
