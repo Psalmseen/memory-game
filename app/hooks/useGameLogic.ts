@@ -5,10 +5,7 @@ interface Card {
   isFlipped: boolean;
 }
 
-const useGameLogic = (updateBestScore: {
-  (clickCount: number): void;
-  (arg0: number): void;
-}) => {
+const useGameLogic = (updateBestScore: (clickCount: number) => void) => {
   // State for all cards
   const [cards, setCards] = useState<Card[]>([]);
 
